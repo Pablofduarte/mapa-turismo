@@ -1,0 +1,34 @@
+/* Importação */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Parmetros Univerls */
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-image: url('../img/mapa-ilustrao.png');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+}
+
+.header {
+    top: 0;
+    left: 0;
+    right: 0; 
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
