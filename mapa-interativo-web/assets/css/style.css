@@ -14,21 +14,121 @@
 
 body {
     background-image: url('../img/mapa-ilustrao.png');
-    width: 100%;
+    background-position: center ;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-
+    /* background-repeat: no-repeat; */
+    height: 100vh;
 }
 
-.header {
-    top: 0;
-    left: 0;
-    right: 0; 
+/* Configuração do container do mapa */
+.map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }
 
-.logo {
-    width: 150px;
-    height: auto;
+/* Botão Flutuante (Touch Friendly - 50x50px mínimo para precisão do toque) */
+.menu-toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.75); /* Dark sofisticado */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle-btn .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Estado transformado do botão (X) quando o menu estiver aberto */
+.menu-toggle-btn.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle-btn.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle-btn.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Painel Lateral Retrátil */
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: -320px; /* Escondido por padrão */
+  width: 300px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.85); /* Tom escuro transparente */
+  backdrop-filter: blur(12px); /* Efeito de vidro fosco */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  transition: left 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+  padding: 90px 20px 20px 20px;
+  box-sizing: border-box;
+}
+
+/* Classe que ativa a abertura do menu via JS */
+.sidebar-menu.open {
+  left: 0;
+}
+
+.menu-header h3 {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-items li {
+  margin-bottom: 15px;
+}
+
+/* Links estilizados para clique fácil na tela touch */
+.menu-items a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s ease;
+}
+
+/* Feedback visual de seleção */
+.menu-items a:shadow, .menu-items a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: bold;
 }
